@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.thoughtworks.factorial.FactorialTests" tests="5" skipped="4" failures="0" errors="0" timestamp="2015-04-02T23:40:35" hostname="DavidsPC" time="0.016">
+  <properties/>
+  <testcase name="shouldThrowIllegalArgumentExceptionWhenNumberIsNegative" classname="com.thoughtworks.factorial.FactorialTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldReturnSixWhenNumberIsThree" classname="com.thoughtworks.factorial.FactorialTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldReturnOneWhenNumberIsOne" classname="com.thoughtworks.factorial.FactorialTests" time="0.01"/>
+  <testcase name="shouldReturnOneWhenNumberIsZero" classname="com.thoughtworks.factorial.FactorialTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldReturnTwoWhenNumberIsTwo" classname="com.thoughtworks.factorial.FactorialTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
