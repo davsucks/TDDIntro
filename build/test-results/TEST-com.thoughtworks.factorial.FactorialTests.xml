@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.thoughtworks.factorial.FactorialTests" tests="5" skipped="1" failures="0" errors="0" timestamp="2015-04-03T00:03:01" hostname="DavidsPC" time="0.015">
+<testsuite name="com.thoughtworks.factorial.FactorialTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-04-03T00:04:24" hostname="DavidsPC" time="0.011">
   <properties/>
-  <testcase name="shouldThrowIllegalArgumentExceptionWhenNumberIsNegative" classname="com.thoughtworks.factorial.FactorialTests" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="shouldReturnSixWhenNumberIsThree" classname="com.thoughtworks.factorial.FactorialTests" time="0.008"/>
+  <testcase name="shouldThrowIllegalArgumentExceptionWhenNumberIsNegative" classname="com.thoughtworks.factorial.FactorialTests" time="0.002"/>
+  <testcase name="shouldReturnSixWhenNumberIsThree" classname="com.thoughtworks.factorial.FactorialTests" time="0.006"/>
   <testcase name="shouldReturnOneWhenNumberIsOne" classname="com.thoughtworks.factorial.FactorialTests" time="0.0"/>
-  <testcase name="shouldReturnOneWhenNumberIsZero" classname="com.thoughtworks.factorial.FactorialTests" time="0.001"/>
+  <testcase name="shouldReturnOneWhenNumberIsZero" classname="com.thoughtworks.factorial.FactorialTests" time="0.0"/>
   <testcase name="shouldReturnTwoWhenNumberIsTwo" classname="com.thoughtworks.factorial.FactorialTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
