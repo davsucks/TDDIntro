@@ -100,6 +100,7 @@ public class LibraryTest {
         createLibraryAndCallWelcomeWithTime();
 
         // add a verify here
+        verify(printStream).println(contains("FormattedTimeString"));
     }
 
     private void createLibraryAndCallWelcomeWithTime() {
