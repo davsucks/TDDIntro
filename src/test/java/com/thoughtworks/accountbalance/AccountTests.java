@@ -5,37 +5,41 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class AccountTests {
 
-    private Account account;
+    private Account accountWith100Dollars;
+    private Account accountWith50Dollars;
 
     @Before
     public void setUp() {
-        account = new Account(100);
+        accountWith100Dollars = new Account(100);
+        accountWith50Dollars = new Account(50);
     }
 
     @Test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
         // when
-        account.deposit(50);
+        accountWith100Dollars.deposit(50);
         // then
-        assertThat(account.balance(), is(equalTo(150)));
+        assertThat(accountWith100Dollars.balance(), is(150));
     }
 
     @Test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
         // when
-        account.withdraw(50);
+        accountWith100Dollars.withdraw(50);
         // then
-        assertThat(account.balance(), is(equalTo(50)));
+        assertThat(accountWith100Dollars.balance(), is(50));
 
     }
 
-//    @Test
-//    public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-//
-//    }
+    @Test
+    public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
+        // when
+        accountWith50Dollars.withdraw(100);
+        // then
+        assertThat(accountWith50Dollars.balance(), is(50));
+    }
 }
