@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.DataFormatException;
 
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.*;
@@ -18,6 +19,7 @@ public class LibraryTest {
     private PrintStream printStream;
     private String title_one;
     private String title_two;
+    private DateTimeFormatter dateTimeFormatter;
 
 
     /*
@@ -32,6 +34,7 @@ public class LibraryTest {
         printStream = mock(PrintStream.class);
         title_one = "Book Title One";
         title_two = "Book Title Two";
+        dateTimeFormatter = mock(DateTimeFormatter.class);
     }
 
     private void createLibraryAndListBooks(List<String> books, PrintStream printStream) {
@@ -78,9 +81,7 @@ public class LibraryTest {
     // This one is done for you
     @Test
     public void shouldWelcomeUser() {
-        List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
-        DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
+
         Library library = new Library(books, printStream, dateTimeFormatter);
 
         // We don't need to mock DateTime because it is a value object
@@ -94,10 +95,7 @@ public class LibraryTest {
     
     @Test
     public void shouldDisplayFormattedTime() {
-        List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
         DateTime time = new DateTime();
-        DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
 
         when(dateTimeFormatter.print(time)).thenReturn("FormattedTimeString");
 
