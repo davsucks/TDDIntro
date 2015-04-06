@@ -20,6 +20,7 @@ public class LibraryTest {
     private String title_one;
     private String title_two;
     private DateTimeFormatter dateTimeFormatter;
+    private DateTime time;
 
 
     /*
@@ -35,6 +36,10 @@ public class LibraryTest {
         title_one = "Book Title One";
         title_two = "Book Title Two";
         dateTimeFormatter = mock(DateTimeFormatter.class);
+
+        // We don't need to mock DateTime because it is a value object
+        // We can't mock it because it is a final class
+        time = new DateTime();
     }
 
     private void createLibraryAndListBooks(List<String> books, PrintStream printStream) {
@@ -82,28 +87,25 @@ public class LibraryTest {
     @Test
     public void shouldWelcomeUser() {
 
-        Library library = new Library(books, printStream, dateTimeFormatter);
-
-        // We don't need to mock DateTime because it is a value object
-        // We can't mock it because it is a final class
-        DateTime time = new DateTime();
-        
-        library.welcome(time);
+        createLibraryAndCallWelcomeWithTime();
         
         verify(printStream).println(contains("Welcome"));
     }
     
     @Test
     public void shouldDisplayFormattedTime() {
-        DateTime time = new DateTime();
 
         when(dateTimeFormatter.print(time)).thenReturn("FormattedTimeString");
 
+        createLibraryAndCallWelcomeWithTime();
+
+        // add a verify here
+    }
+
+    private void createLibraryAndCallWelcomeWithTime() {
         Library library = new Library(books, printStream, dateTimeFormatter);
 
         library.welcome(time);
-
-        // add a verify here
     }
 
     @Test
