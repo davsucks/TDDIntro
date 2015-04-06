@@ -42,7 +42,7 @@ public class LibraryTest {
         time = new DateTime();
     }
 
-    private void createLibraryAndListBooks(List<String> books, PrintStream printStream) {
+    private void createLibraryAndListBooks() {
         Library library = new Library(books, printStream, null);
         library.listBooks();
     }
@@ -52,7 +52,7 @@ public class LibraryTest {
     public void shouldPrintBookTitleWhenThereIsOneBook() {
 
         books.add(title_one);
-        createLibraryAndListBooks(books, printStream);
+        createLibraryAndListBooks();
 
         // add a verify statement here that shows that the book title was printed by to the printStream
         verify(printStream).println(title_one);
@@ -61,7 +61,7 @@ public class LibraryTest {
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
 
-        createLibraryAndListBooks(books, printStream);
+        createLibraryAndListBooks();
         verify(printStream, never()).println();
     }
 
@@ -70,7 +70,7 @@ public class LibraryTest {
 
         books.add(title_one);
         books.add(title_two);
-        createLibraryAndListBooks(books, printStream);
+        createLibraryAndListBooks();
 
         verify(printStream).println(title_one);
         verify(printStream).println(title_two);
