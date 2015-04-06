@@ -16,6 +16,8 @@ public class LibraryTest {
 
     private List<String> books;
     private PrintStream printStream;
+    private String title_one;
+    private String title_two;
 
 
     /*
@@ -28,6 +30,8 @@ public class LibraryTest {
     public void setUp() {
         books = new ArrayList<>();
         printStream = mock(PrintStream.class);
+        title_one = "Book Title One";
+        title_two = "Book Title Two";
     }
 
     private void createLibraryAndListBooks(List<String> books, PrintStream printStream) {
@@ -39,12 +43,11 @@ public class LibraryTest {
     @Test
     public void shouldPrintBookTitleWhenThereIsOneBook() {
 
-        String title = "Book Title";
-        books.add(title);
+        books.add(title_one);
         createLibraryAndListBooks(books, printStream);
 
         // add a verify statement here that shows that the book title was printed by to the printStream
-        verify(printStream).println(title);
+        verify(printStream).println(title_one);
     }
 
     @Test
@@ -57,13 +60,10 @@ public class LibraryTest {
     @Test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() {
 
-        String title_one ="Book Title One";
-        String title_two = "Book Title Two";
-
         books.add(title_one);
         books.add(title_two);
         createLibraryAndListBooks(books, printStream);
-        
+
         verify(printStream).println(title_one);
         verify(printStream).println(title_two);
     }
