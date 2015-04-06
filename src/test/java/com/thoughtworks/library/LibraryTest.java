@@ -2,6 +2,7 @@ package com.thoughtworks.library;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.PrintStream;
@@ -13,6 +14,9 @@ import static org.mockito.Mockito.*;
 
 public class LibraryTest {
 
+    private List<String> books;
+    private PrintStream printStream;
+
 
     /*
 
@@ -20,17 +24,24 @@ public class LibraryTest {
 
      */
 
+    @Before
+    public void setUp() {
+        books = new ArrayList<>();
+        printStream = mock(PrintStream.class);
+    }
+
+    private void createLibraryAndListBooks(List<String> books, PrintStream printStream) {
+        Library library = new Library(books, printStream, null);
+        library.listBooks();
+    }
+
 
     @Test
     public void shouldPrintBookTitleWhenThereIsOneBook() {
 
-        List<String> books = new ArrayList<>();
         String title = "Book Title";
         books.add(title);
-        PrintStream printStream = mock(PrintStream.class);
-        Library library = new Library(books, printStream, null);
-
-        library.listBooks();
+        createLibraryAndListBooks(books, printStream);
 
         // add a verify statement here that shows that the book title was printed by to the printStream
         verify(printStream).println(title);
@@ -39,10 +50,7 @@ public class LibraryTest {
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
 
-        List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
-        Library library = new Library(books, printStream, null);
-        library.listBooks();
+        createLibraryAndListBooks(books, printStream);
         verify(printStream, never()).println();
     }
 
