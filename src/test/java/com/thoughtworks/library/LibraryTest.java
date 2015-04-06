@@ -112,6 +112,7 @@ public class LibraryTest {
     @Test
     public void shouldDisplayFormattedTimeWhenItIsAnEmptyString() {
 
-        // implement me
+        createLibraryAndCallWelcomeWithTime();
+        verify(dateTimeFormatter).print(time);
     }
 }
