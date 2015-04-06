@@ -94,13 +94,13 @@ public class LibraryTest {
     
     @Test
     public void shouldDisplayFormattedTime() {
-
-        when(dateTimeFormatter.print(time)).thenReturn("FormattedTimeString");
+        String formattedTimeString = "FormattedTimeString";
+        when(dateTimeFormatter.print(time)).thenReturn(formattedTimeString);
 
         createLibraryAndCallWelcomeWithTime();
 
         // add a verify here
-        verify(printStream).println(contains("FormattedTimeString"));
+        verify(printStream).println(contains(formattedTimeString));
     }
 
     private void createLibraryAndCallWelcomeWithTime() {
